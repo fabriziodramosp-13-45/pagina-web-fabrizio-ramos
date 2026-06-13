@@ -1,0 +1,1324 @@
+Aquí tienes el `index.html` completo, listo para copiar en GitHub Pages:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio profesional de Fabrizio D’Alessandro Ramos Paucar, estudiante de Derecho orientado a Legal Ops, Compliance, análisis normativo y control de procesos." />
+  <title>Fabrizio D’Alessandro Ramos Paucar | Legal Ops & Compliance</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #1e293b;
+      --navy-2: #0f172a;
+      --navy-soft: #334155;
+      --gold: #d4af37;
+      --gold-soft: #f7edc5;
+      --blue: #2563eb;
+      --slate: #64748b;
+      --muted: #94a3b8;
+      --line: #e2e8f0;
+      --bg: #f8fafc;
+      --paper: #ffffff;
+      --paper-2: #f1f5f9;
+      --green: #10b981;
+      --red: #ef4444;
+      --radius: 8px;
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+      --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.08);
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--navy);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    svg {
+      display: block;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: var(--radius);
+      background: var(--navy-2);
+      color: white;
+      transform: translateY(-160%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 250, 252, 0.9);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(var(--max), calc(100% - 32px));
+      min-height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
+      color: var(--navy-2);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--navy-2), var(--navy), #41536f);
+      color: var(--gold);
+      box-shadow: 0 14px 26px rgba(15, 23, 42, 0.2);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--slate);
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      color: var(--slate);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: white;
+      color: var(--navy-2);
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 44px;
+      padding: 12px 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-weight: 800;
+      line-height: 1;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy-2);
+      box-shadow: 0 16px 30px rgba(212, 175, 55, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: #e1bd46;
+      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.36);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--navy);
+      border-color: var(--line);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+    }
+
+    .menu-button {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto 14px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .mobile-menu.is-open {
+      display: grid;
+    }
+
+    .mobile-menu a {
+      padding: 12px;
+      border-radius: var(--radius);
+      color: var(--slate);
+      font-weight: 800;
+    }
+
+    .mobile-menu a:hover {
+      background: var(--paper-2);
+      color: var(--navy);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.18), transparent 34%),
+        linear-gradient(135deg, #0f172a 0%, #1e293b 52%, #27364d 100%);
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 70px 0 42px;
+      display: grid;
+      gap: 34px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border: 1px solid rgba(212, 175, 55, 0.36);
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.12);
+      color: #f6df8b;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.16);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2.45rem, 11vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-lead {
+      max-width: 720px;
+      margin-bottom: 26px;
+      color: #dbe4f0;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-card {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .profile-panel {
+      padding: 18px;
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .avatar {
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #f3d46c);
+      color: var(--navy-2);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.65rem;
+      font-weight: 800;
+    }
+
+    .profile-header strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .profile-header span {
+      display: block;
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding-top: 18px;
+    }
+
+    .metric {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(15, 23, 42, 0.24);
+    }
+
+    .metric strong {
+      display: block;
+      color: white;
+      font-size: 1.85rem;
+      line-height: 1;
+    }
+
+    .metric span {
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .hero-strip {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-bottom: 0;
+      border-radius: var(--radius) var(--radius) 0 0;
+      overflow: hidden;
+    }
+
+    .strip-item {
+      padding: 18px;
+      background: rgba(15, 23, 42, 0.34);
+    }
+
+    .strip-item span {
+      display: block;
+      color: #cbd5e1;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .strip-item strong {
+      display: block;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .section {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 64px 0;
+    }
+
+    .section-head {
+      margin-bottom: 26px;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: var(--navy-2);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      line-height: 1.08;
+    }
+
+    .section-head p {
+      max-width: 760px;
+      color: var(--slate);
+      font-size: 1.02rem;
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-card {
+      padding: 24px;
+    }
+
+    .about-card p {
+      margin-bottom: 0;
+      color: var(--navy-soft);
+      font-size: 1.04rem;
+    }
+
+    .quote-card {
+      padding: 24px;
+      background: var(--navy);
+      color: white;
+    }
+
+    .quote-card p {
+      margin-bottom: 16px;
+      color: #e2e8f0;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .quote-card span {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .specialty-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .specialty {
+      padding: 22px;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .specialty:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 175, 55, 0.65);
+      box-shadow: var(--shadow);
+    }
+
+    .specialty-icon {
+      width: 46px;
+      height: 46px;
+      margin-bottom: 16px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: var(--gold-soft);
+      color: var(--navy-2);
+      font-weight: 900;
+    }
+
+    .specialty h3 {
+      margin-bottom: 8px;
+      color: var(--navy-2);
+      font-size: 1.05rem;
+    }
+
+    .specialty p {
+      margin-bottom: 0;
+      color: var(--slate);
+      font-size: 0.95rem;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 22px;
+    }
+
+    .timeline-top {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .timeline-date {
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--paper-2);
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 4px;
+      color: var(--navy-2);
+      font-size: 1.08rem;
+    }
+
+    .timeline-role {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 8px;
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline-list li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--slate);
+      font-size: 0.95rem;
+    }
+
+    .timeline-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .education-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .education-card {
+      padding: 20px;
+    }
+
+    .education-card h3 {
+      margin-bottom: 4px;
+      color: var(--navy-2);
+    }
+
+    .education-card p {
+      margin-bottom: 8px;
+      color: var(--slate);
+    }
+
+    .highlight {
+      display: inline-flex;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: var(--navy-2);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .skills-layout {
+      display: grid;
+      gap: 18px;
+    }
+
+    .skill-box {
+      padding: 22px;
+    }
+
+    .skill-box h3 {
+      margin-bottom: 14px;
+      color: var(--navy-2);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: white;
+      color: var(--navy);
+      font-size: 0.88rem;
+      font-weight: 800;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold);
+    }
+
+    .badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .cert-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .cert-card {
+      padding: 20px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .cert-card h3 {
+      margin-bottom: 6px;
+      color: var(--navy-2);
+      font-size: 1rem;
+    }
+
+    .cert-card p {
+      margin-bottom: 0;
+      color: var(--slate);
+      font-size: 0.94rem;
+    }
+
+    .contact {
+      background: var(--navy-2);
+      color: white;
+    }
+
+    .contact-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 64px 0;
+      display: grid;
+      gap: 24px;
+    }
+
+    .contact h2 {
+      color: white;
+    }
+
+    .contact p {
+      color: #cbd5e1;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+      color: white;
+      font-weight: 800;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(212, 175, 55, 0.55);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: var(--radius);
+      background: var(--gold);
+      color: var(--navy-2);
+      font-weight: 900;
+    }
+
+    .contact-form {
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-form label {
+      display: grid;
+      gap: 7px;
+      color: #e2e8f0;
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      padding: 12px 13px;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.16);
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-note {
+      margin-top: 12px;
+      margin-bottom: 0;
+      color: #94a3b8;
+      font-size: 0.84rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--navy-2);
+      color: #94a3b8;
+    }
+
+    .footer-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 22px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    @media (min-width: 640px) {
+      .hero-actions {
+        flex-direction: row;
+      }
+
+      .metric-grid,
+      .hero-strip,
+      .specialty-grid,
+      .education-grid,
+      .cert-grid,
+      .contact-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .form-grid .full {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .menu-button,
+      .mobile-menu {
+        display: none;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: flex;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.7fr);
+        align-items: center;
+        padding: 96px 0 54px;
+      }
+
+      .about-grid,
+      .skills-layout,
+      .contact-inner {
+        grid-template-columns: 1fr 0.85fr;
+        align-items: start;
+      }
+
+      .specialty-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .timeline {
+        padding-left: 28px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: var(--line);
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -25px;
+        top: 28px;
+        width: 14px;
+        height: 14px;
+        border: 3px solid var(--gold);
+        border-radius: 50%;
+        background: var(--bg);
+      }
+
+      .timeline-top {
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+      }
+
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 1120px) {
+      .hero-strip {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="nav">
+      <a class="brand" href="#inicio" aria-label="Inicio">
+        <span class="brand-mark">FR</span>
+        <span>
+          Fabrizio D’Alessandro
+          <small>Legal Ops & Compliance</small>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a class="btn btn-primary nav-cta" href="mailto:fabrizioramosp@gmail.com">Contactar</a>
+
+      <button class="menu-button" type="button" id="menuButton" aria-label="Abrir menú">☰</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <div>
+          <span class="eyebrow"><span class="eyebrow-dot"></span> Estudiante de Derecho IX ciclo · Lima, Perú</span>
+          <h1>Legal Ops, compliance y análisis jurídico con enfoque en eficiencia, datos y resultados.</h1>
+          <p class="hero-lead">
+            Soy Fabrizio D’Alessandro Ramos Paucar, estudiante de Derecho con promedio sobresaliente, experiencia judicial y orientación a transformar procesos legales en sistemas medibles, trazables y mejor gestionados.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:fabrizioramosp@gmail.com">Contactar</a>
+            <a class="btn btn-secondary" href="#trayectoria">Ver CV completo</a>
+          </div>
+        </div>
+
+        <aside class="hero-card profile-panel" aria-label="Resumen profesional">
+          <div class="profile-header">
+            <div class="avatar">FR</div>
+            <div>
+              <strong>Fabrizio D’Alessandro Ramos Paucar</strong>
+              <span>Practicante Legal | Legal Ops & Compliance</span>
+            </div>
+          </div>
+
+          <div class="metric-grid">
+            <div class="metric">
+              <strong>200+</strong>
+              <span>proyectos de resolución judicial producidos</span>
+            </div>
+            <div class="metric">
+              <strong>160</strong>
+              <span>notificaciones judiciales gestionadas en SIJ</span>
+            </div>
+            <div class="metric">
+              <strong>17.59</strong>
+              <span>promedio académico actual</span>
+            </div>
+            <div class="metric">
+              <strong>61</strong>
+              <span>organizaciones mapeadas para alianzas estratégicas</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="hero-strip" aria-label="Datos clave">
+        <div class="strip-item">
+          <span>Enfoque</span>
+          <strong>Legal Ops & Compliance</strong>
+        </div>
+        <div class="strip-item">
+          <span>Herramientas</span>
+          <strong>Power BI, Excel, SIJ, SPIJ</strong>
+        </div>
+        <div class="strip-item">
+          <span>Fortaleza</span>
+          <strong>Análisis normativo y control documental</strong>
+        </div>
+        <div class="strip-item">
+          <span>Disponibilidad</span>
+          <strong>Prácticas legales y proyectos jurídicos</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre-mi">
+      <div class="section-head">
+        <span class="section-kicker">Sobre mí</span>
+        <h2>Un perfil jurídico con mentalidad de procesos.</h2>
+      </div>
+
+      <div class="about-grid">
+        <article class="card about-card">
+          <p>
+            Soy estudiante de Derecho de noveno ciclo, con orientación a Legal Ops, Compliance y análisis normativo. Me interesa construir soluciones legales que no solo respondan bien en el plano jurídico, sino que también sean eficientes, trazables y útiles para la toma de decisiones. He producido más de 200 proyectos de resolución judicial, estandarizado modelos documentales y gestionado información procesal en entornos de alta carga. Combino redacción jurídica, criterio normativo, orden documental y herramientas como Power BI y Excel para convertir información legal compleja en reportes, controles y acciones claras.
+          </p>
+        </article>
+
+        <aside class="card quote-card">
+          <p>
+            “Mi diferencial está en unir criterio jurídico, disciplina documental y análisis de datos para mejorar la forma en que los equipos legales trabajan.”
+          </p>
+          <span>Legal Ops · Compliance · Control de procesos</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="especialidades">
+      <div class="section-head">
+        <span class="section-kicker">Áreas de interés</span>
+        <h2>Especialidades alineadas al derecho contemporáneo.</h2>
+        <p>
+          Mis intereses combinan práctica jurídica, gestión operativa, investigación normativa y uso de herramientas digitales para fortalecer procesos legales.
+        </p>
+      </div>
+
+      <div class="specialty-grid">
+        <article class="card specialty">
+          <div class="specialty-icon">CO</div>
+          <h3>Compliance y Legal Ops</h3>
+          <p>Control de procesos, reportes, trazabilidad documental, gestión de riesgos y mejora operativa legal.</p>
+        </article>
+
+        <article class="card specialty">
+          <div class="specialty-icon">LI</div>
+          <h3>Litigios y gestión procesal</h3>
+          <p>Elaboración de proyectos, análisis de expedientes, revisión de requisitos procesales y control de plazos.</p>
+        </article>
+
+        <article class="card specialty">
+          <div class="specialty-icon">AM</div>
+          <h3>Derecho ambiental y regulatorio</h3>
+          <p>Investigación jurídica, litigio climático corporativo, análisis comparado e impacto normativo.</p>
+        </article>
+
+        <article class="card specialty">
+          <div class="specialty-icon">DC</div>
+          <h3>Derecho del consumidor y arbitraje</h3>
+          <p>Redacción de memoriales, argumentación oral, contratos, normativa de consumo y estrategia procesal.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="trayectoria">
+      <div class="section-head">
+        <span class="section-kicker">Trayectoria</span>
+        <h2>Experiencia, educación y logros medibles.</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="card timeline-item">
+          <div class="timeline-top">
+            <div>
+              <h3>Corte Superior de Justicia de Lima · Sede Surco–San Borja</h3>
+              <div class="timeline-role">Voluntario Judicial | Programa de Celeridad Judicial</div>
+            </div>
+            <span class="timeline-date">Oct 2025 – Dic 2025</span>
+          </div>
+          <ul class="timeline-list">
+            <li>Produje más de 200 proyectos de resolución judicial en materias civil, comercial y laboral, integrando análisis jurídico y control formal.</li>
+            <li>Estandaricé modelos resolutivos para tipologías recurrentes, reduciendo observaciones y optimizando tiempos de elaboración.</li>
+            <li>Gestioné 160 notificaciones judiciales mediante SIJ, asegurando trazabilidad documental y cumplimiento de plazos.</li>
+            <li>Elaboré reportes de control procesal sobre expedientes críticos, generando visibilidad sobre estado, riesgos y decisiones de archivo.</li>
+          </ul>
+        </article>
+
+        <article class="card timeline-item">
+          <div class="timeline-top">
+            <div>
+              <h3>Clínica de Litigación Ambiental Científica</h3>
+              <div class="timeline-role">Voluntario | Unidad de Investigación Jurídica</div>
+            </div>
+            <span class="timeline-date">Sep 2025 – Presente</span>
+          </div>
+          <ul class="timeline-list">
+            <li>Evalué el Proyecto de Ley 2404-2021-CR mediante análisis fiscal, coherencia tributaria, legislación comparada y principios constitucionales.</li>
+            <li>Analicé 12 normas ambientales, 8 casos de litigio y 40 fuentes especializadas para investigación sobre litigio climático corporativo.</li>
+            <li>Coordiné operaciones de la final del VI Moot de Derecho Ambiental Científico en el Tribunal Constitucional, gestionando 14 voluntarios y 35 asistentes.</li>
+          </ul>
+        </article>
+
+        <article class="card timeline-item">
+          <div class="timeline-top">
+            <div>
+              <h3>Hult Prize OnCampus · Universidad Científica del Sur</h3>
+              <div class="timeline-role">Coordinador de Alianzas y Gestión de Información</div>
+            </div>
+            <span class="timeline-date">Ene 2026 – Feb 2026</span>
+          </div>
+          <ul class="timeline-list">
+            <li>Estructuré un pipeline de 61 organizaciones del ecosistema de innovación social para priorizar alianzas clave.</li>
+            <li>Gestioné reuniones con 14 stakeholders entre mentores, jurados y aliados corporativos.</li>
+            <li>Diseñé bases de datos centralizadas en Google Sheets con validación de datos y trazabilidad documental.</li>
+            <li>Desarrollé una propuesta técnica de articulación con ProInnóvate aprobada por dirección.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="education-grid">
+        <article class="card education-card">
+          <h3>Universidad Científica del Sur · Derecho</h3>
+          <p>IX ciclo · 2025 – Presente · Promedio 17.59</p>
+          <span class="highlight">Tercio Superior</span>
+          <span class="highlight">Beca por Excelencia Académica</span>
+        </article>
+
+        <article class="card education-card">
+          <h3>Universidad Ricardo Palma · Derecho</h3>
+          <p>2021 – 2024 · Promedio 17.50</p>
+          <span class="highlight">Quinto Superior 2023-II</span>
+          <span class="highlight">Quinto Superior 2024</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="section-kicker">Competencias jurídicas</span>
+        <h2>Resultados en simulaciones y argumentación.</h2>
+      </div>
+
+      <div class="cert-grid">
+        <article class="card cert-card">
+          <h3>III Competencia Nacional de Arbitraje de Consumo · INDECOPI</h3>
+          <p>2.º puesto en Mejor Memorial de Contestación, 4.º lugar en ranking oral y clasificación a cuartos de final entre 28 equipos.</p>
+        </article>
+
+        <article class="card cert-card">
+          <h3>X Contienda de Derechos Fundamentales</h3>
+          <p>Redacción de demanda y contestación, defensa oral en rondas finales presenciales en PUCP y clasificación previa a semifinales.</p>
+        </article>
+
+        <article class="card cert-card">
+          <h3>Competencia ABA ROLI</h3>
+          <p>Investigación penal, análisis normativo y jurisprudencial, redacción de speech de defensa y clasificación a segunda fase.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="habilidades">
+      <div class="section-head">
+        <span class="section-kicker">Habilidades</span>
+        <h2>Competencias técnicas y humanas para equipos legales modernos.</h2>
+      </div>
+
+      <div class="skills-layout">
+        <article class="card skill-box">
+          <h3>Herramientas y competencias técnicas</h3>
+          <div class="badges">
+            <span class="badge">Power BI</span>
+            <span class="badge">Excel intermedio</span>
+            <span class="badge">Tablas dinámicas</span>
+            <span class="badge">Validación de datos</span>
+            <span class="badge">SharePoint</span>
+            <span class="badge">Microsoft Teams</span>
+            <span class="badge">Sistema Integrado Judicial</span>
+            <span class="badge">SPIJ</span>
+            <span class="badge">SUNARP</span>
+            <span class="badge">SUNAT</span>
+            <span class="badge">Google Sheets</span>
+            <span class="badge">Zotero</span>
+            <span class="badge">vLex</span>
+            <span class="badge">Google Scholar</span>
+          </div>
+        </article>
+
+        <article class="card skill-box">
+          <h3>Habilidades blandas y jurídicas</h3>
+          <div class="badges">
+            <span class="badge">Redacción jurídica</span>
+            <span class="badge">Análisis normativo</span>
+            <span class="badge">Argumentación oral</span>
+            <span class="badge">Control documental</span>
+            <span class="badge">Gestión de plazos</span>
+            <span class="badge">Negociación institucional</span>
+            <span class="badge">Investigación jurídica</span>
+            <span class="badge">Pensamiento estructurado</span>
+            <span class="badge">Coordinación de equipos</span>
+            <span class="badge">Inglés B1</span>
+            <span class="badge">Portugués básico</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="section-kicker">Certificaciones</span>
+        <h2>Formación complementaria.</h2>
+      </div>
+
+      <div class="cert-grid">
+        <article class="card cert-card">
+          <h3>Asistente de Análisis de Datos con Power BI</h3>
+          <p>CENAP Perú · Ene 2026 · 90 horas</p>
+        </article>
+
+        <article class="card cert-card">
+          <h3>Derecho Laboral y Contrataciones Públicas</h3>
+          <p>Colegio de Abogados de Lima · Ene 2025</p>
+        </article>
+
+        <article class="card cert-card">
+          <h3>Curso Especializado en Litigación Oral</h3>
+          <p>American Bar Association · Ago – Sep 2024 · 80 horas</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="contact-inner">
+        <div>
+          <span class="section-kicker">Contacto</span>
+          <h2>Conversemos sobre oportunidades legales, compliance y proyectos de mejora jurídica.</h2>
+          <p>
+            Estoy disponible para prácticas legales, proyectos de investigación jurídica, gestión documental, Legal Ops y soporte en procesos de cumplimiento.
+          </p>
+
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:fabrizioramosp@gmail.com">
+              <span class="contact-icon">@</span>
+              fabrizioramosp@gmail.com
+            </a>
+
+            <a class="contact-link" href="https://linkedin.com/in/dalessandroramos" target="_blank" rel="noopener">
+              <span class="contact-icon">in</span>
+              linkedin.com/in/dalessandroramos
+            </a>
+
+            <a class="contact-link" href="https://wa.me/51960591903" target="_blank" rel="noopener">
+              <span class="contact-icon">WA</span>
+              WhatsApp: +51 960 591 903
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" action="mailto:fabrizioramosp@gmail.com" method="post" enctype="text/plain">
+          <div class="form-grid">
+            <label>
+              Nombre
+              <input type="text" name="nombre" placeholder="Tu nombre" />
+            </label>
+
+            <label>
+              Correo
+              <input type="email" name="correo" placeholder="tu@email.com" />
+            </label>
+
+            <label class="full">
+              Mensaje
+              <textarea name="mensaje" placeholder="Cuéntame brevemente sobre la oportunidad o proyecto."></textarea>
+            </label>
+          </div>
+
+          <button class="btn btn-primary" type="submit" style="margin-top: 14px;">Enviar mensaje</button>
+          <p class="form-note">Formulario visual listo para GitHub Pages. Puedes conectarlo luego a Formspree, Netlify Forms o EmailJS.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Fabrizio D’Alessandro Ramos Paucar</span>
+      <span>Legal Ops · Compliance · Análisis Normativo</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("is-open");
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("is-open");
+      });
+    });
+  </script>
+</body>
+</html>
+```
